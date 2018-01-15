@@ -36,12 +36,27 @@ public class MicroservicesBootApplication extends SpringBootServletInitializer{
 	@PostConstruct
 	public void init() {
 		Set<Player> players = new HashSet<>();
-		players.add(new Player("Rafael","Volante"));
+		Player rafael = new Player("Rafael","Volante");
+		players.add(rafael);
 		players.add(new Player("Egidio", "Zagueiro"));
 		
 		Team team = new Team("500","Contagem","Mula",players);
 		
 		teamDao.save(team);
+		
+		players.clear();
+		players.add(new Player("Robinho","Volante"));
+		players.add(new Player("Arrascaeta","Meia"));
+		players.add(new Player("Fred","Atacante"));
+		players.add(new Player("Thiago Neves","Meia"));
+		players.add(new Player("Sassa","Atacante"));
+		players.add(new Player("Rafael","Goleiro"));
+		
+		Team team2 = new Team("Cruzeiro","Belo Horizonte","Raposa",players);
+		
+		
+		
+		teamDao.save(team2);
 	}
 	
 	@Autowired

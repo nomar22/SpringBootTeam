@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Player {
@@ -12,7 +13,9 @@ public class Player {
 	Long id;
 	String name;
 	String position;
-//	Team teamId;
+	
+	@ManyToOne
+	Team team;
 	
 	
 	public Player() {
@@ -34,6 +37,18 @@ public class Player {
 	}
 	public void setPosition(String position) {
 		this.position = position;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Team getTeam() {
+		return team;
+	}
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
 }
